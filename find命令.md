@@ -9,6 +9,7 @@
 -----------------------
 + -name 按照文件名查找文件
    + find /dir -name filename  在/dir目录及其子目录下面查找名字为filename的文件
+      + find ./data_jjw/ -name 'file.txt' -print（打印）
    + find . -name "*.c" 在当前目录及其子目录（用“.”表示）中查找任何扩展名为“c”的文件
 -----------------------
 + -perm 按照文件权限来查找文件。
