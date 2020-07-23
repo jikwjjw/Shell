@@ -10,6 +10,7 @@
 + -name 按照文件名查找文件
    + find /dir -name filename  在/dir目录及其子目录下面查找名字为filename的文件
    + find . -name "*.c" 在当前目录及其子目录（用“.”表示）中查找任何扩展名为“c”的文件
+   -------
 + -perm 按照文件权限来查找文件。
    + find . -perm 755 –print 在当前目录下查找文件权限位为755的文件，即文件属主可以读、写、执行，其他用户可以读、执行的文件
 + -prune 使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。
@@ -43,14 +44,14 @@
    查找当前路径下的所有普通文件，并把它们列出来。
    2. find logs -type f -mtime +5 -exec rm {} \;
    删除logs目录下更新时间为5日以上的文件。
-3.find . -name "*.log" -mtime +5 -ok rm {} \;
-删除当前路径下以。log结尾的五日以上的文件，删除之前要确认。
-4. find ~ -type f -perm 4755 -print
-查找$HOME目录下suid位被设置，文件属性为755的文件打印出来。
-说明： find在有点系统中会一次性得到将匹配到的文件都传给exec，但是有的系统对exec的命令长度做限制，就会报：”参数列太长“，这就需要使用xargs。xargs是部分取传来的文件。
-5. find / -type f -print |xargs file
-xargs测试文件分类
-6. find . -name "core*" -print|xargs echo " ">/tmp/core.log
-将core文件信息查询结果报存到core。log日志。
-7. find / -type f -print | xargs chmod o -w
-8. find . -name * -print |xargs grep "DBO"
+   3.find . -name "*.log" -mtime +5 -ok rm {} \;
+   删除当前路径下以。log结尾的五日以上的文件，删除之前要确认。
+   4. find ~ -type f -perm 4755 -print
+   查找$HOME目录下suid位被设置，文件属性为755的文件打印出来。
+   说明： find在有点系统中会一次性得到将匹配到的文件都传给exec，但是有的系统对exec的命令长度做限制，就会报：”参数列太长“，这就需要使用xargs。xargs是部分取传来的文件。
+   5. find / -type f -print |xargs file
+   xargs测试文件分类
+   6. find . -name "core*" -print|xargs echo " ">/tmp/core.log
+   将core文件信息查询结果报存到core。log日志。
+   7. find / -type f -print | xargs chmod o -w
+   8. find . -name * -print |xargs grep "DBO"
